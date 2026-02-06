@@ -1,3 +1,22 @@
+:root {
+  /* Base colors */
+  --color-bg-page: #f4f4f4;
+  --color-bg-dark: #222;
+  --color-bg-light: #fff;
+  --color-bg-muted: #eaeaea;
+
+  /* Text colors */
+  --color-text-primary: #333;
+  --color-text-inverse: #fff;
+
+  /* Accent colors */
+  --color-accent: #0073b1;
+  --color-black: #000;
+
+  --color-bg-footer: #1a1a1a;
+  --color-text-muted: #aaa;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -16,7 +35,7 @@ body {
 header {
   background-color: #222;
   color: #fff;
-  padding: 2rem;
+  padding: 3rem 2rem;
   text-align: center;
 }
 
@@ -26,10 +45,8 @@ header {
 }
 
 .image-overlay img {
-  width: 200px;
-  height: 200px;
+  width: 100%;
   object-fit: cover;
-  border-radius: 50%;
 }
 
 .image-overlay h1 {
@@ -37,7 +54,6 @@ header {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(0, 0, 0, 0.6);
   padding: 0.5rem 1rem;
   border-radius: 5px;
 }
@@ -46,8 +62,6 @@ header {
 .about-me {
   padding: 2rem;
   background-color: #fff;
-  margin-top: 2rem;
-  text-align: center;
 }
 
 .about-me h1 {
@@ -72,9 +86,16 @@ header {
   color: #0073b1; /* example hover color, adjust per icon */
 }
 
+.project-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
 /* Project Grid */
 .project-grid {
   padding: 2rem;
+  margin: 1em;
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -113,4 +134,57 @@ header {
 .project-icons i:hover,
 .project-icons svg:hover {
   color: #000;
+}
+
+.footer-img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.project-grid img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.contact-container {
+  background-color: var(--color-bg-footer);
+  color: var(--color-text-inverse);
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.contact-container h1 {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.contact-container h3 {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--color-text-muted);
+  margin-bottom: 2rem;
+}
+
+.contact-details {
+  margin-bottom: 1.5rem;
+}
+
+.contact-details p {
+  margin: 0.25rem 0;
+  font-size: 0.95rem;
+}
+
+.contact-container .dev-icons {
+  margin-top: 1.5rem;
+}
+
+.contact-container .dev-icons i {
+  font-size: 1.8rem;
+  margin: 0 0.6rem;
+  color: var(--color-text-inverse);
+  transition: color 0.2s ease;
+}
+
+.contact-container .dev-icons i:hover {
+  color: var(--color-accent);
 }
