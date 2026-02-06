@@ -1,0 +1,116 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Header & image overlay */
+header {
+  background-color: #222;
+  color: #fff;
+  padding: 2rem;
+  text-align: center;
+}
+
+.image-overlay {
+  position: relative;
+  display: inline-block;
+}
+
+.image-overlay img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.image-overlay h1 {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+
+/* About Me section */
+.about-me {
+  padding: 2rem;
+  background-color: #fff;
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.about-me h1 {
+  margin-bottom: 1rem;
+}
+
+.about-me p {
+  max-width: 700px;
+  margin: 0 auto 1.5rem auto;
+}
+
+/* Dev icons */
+.dev-icons i {
+  font-size: 2rem;
+  margin: 0 0.5rem;
+  vertical-align: middle;
+  color: #333;
+  transition: color 0.2s;
+}
+
+.dev-icons i:hover {
+  color: #0073b1; /* example hover color, adjust per icon */
+}
+
+/* Project Grid */
+.project-grid {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: #eaeaea;
+  align-items: flex-start;
+}
+
+.project-grid img {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.project-description {
+  flex: 1;
+}
+
+.project-heading {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.project-icons i,
+.project-icons svg {
+  font-size: 1.5rem; /* set the icon size */
+  width: 1em; /* svg matches <i> font size */
+  height: 1em; /* svg matches <i> font size */
+  vertical-align: middle;
+  color: #333;
+  fill: currentColor; /* svg inherits the color */
+  cursor: pointer;
+  margin-left: 0.5rem;
+}
+
+.project-icons i:hover,
+.project-icons svg:hover {
+  color: #000;
+}

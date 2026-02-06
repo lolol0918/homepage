@@ -15,11 +15,13 @@ export default {
   devtool: 'inline-source-map',
 
   devServer: {
-    static: './dist',
+    static: {
+      directory: path.resolve('dist'),
+    },
     open: true,
     hot: true,
-    compress: true,
-    port: 8080,
+    liveReload: true,
+    watchFiles: ['src/**/*'],
   },
 
   plugins: [
@@ -38,6 +40,14 @@ export default {
       {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        type: 'asset/resource', // this copies images to dist
+      },
+      {
+        test: /\.html$/i,
+        loader: 'html-loader',
       },
     ],
   },

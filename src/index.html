@@ -6,17 +6,19 @@
     <title>Document</title>
     <link
       rel="stylesheet"
-      type="text/css"
       href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
     />
   </head>
   <body>
     <header>
-      <div>
-        <img src="" alt="" srcset="" />
+      <div class="image-overlay">
+        <img src="./components/images/goat.jpg" alt="Vader image" />
         <h1>Vader</h1>
       </div>
-      <section>
+    </header>
+
+    <main>
+      <section class="about-me">
         <h1>About Me</h1>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque cum
@@ -26,7 +28,50 @@
           temporibus eveniet animi nesciunt dolorum, officia illo magnam nobis
           rem quos mollitia? Velit.
         </p>
+        <span class="dev-icons">
+          <i class="devicon-github-original colored"></i>
+          <i class="devicon-linkedin-plain"></i>
+          <i class="devicon-facebook-plain"></i>
+        </span>
       </section>
-    </header>
+
+      <section class="project-grid">
+        <img src="./components/images/goat.jpg" alt="Project screenshot" />
+        <div class="project-description">
+          <h2 class="project-heading">
+            Project Name
+            <span class="project-icons">
+              <i class="devicon-github-original"></i>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <title>open-in-new</title>
+                <path
+                  d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z"
+                />
+              </svg>
+            </span>
+          </h2>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="contact-container">
+        <h1>Contact Me</h1>
+        <h3>Please get in touch if you think our work could be beneficial</h3>
+        <div class="contact-details">
+          <p>1234 Random Road</p>
+          <p>Random Town, California 12345</p>
+        </div>
+        <div class="contact-details">
+          <p>555-555-5555</p>
+          <p>randomassemail@gmail.com</p>
+        </div>
+        <span class="dev-icons">
+          <i class="devicon-github-original colored"></i>
+          <i class="devicon-linkedin-plain"></i>
+          <i class="devicon-facebook-plain"></i>
+        </span>
+      </div>
+      <img src="./components/images/goat.jpg" alt="" />
+    </footer>
   </body>
 </html>
