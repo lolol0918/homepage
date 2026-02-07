@@ -15,6 +15,11 @@
 
   --color-bg-footer: #1a1a1a;
   --color-text-muted: #aaa;
+
+  --color-bg-page: #f4f4f4;
+  --color-bg-accent: #0093c4; /* example blue */
+  --color-text-primary: #333;
+  --color-text-inverse: #fff;
 }
 
 * {
@@ -31,22 +36,30 @@ body {
   line-height: 1.6;
 }
 
-/* Header & image overlay */
 header {
-  background-color: #222;
-  color: #fff;
-  padding: 3rem 2rem;
-  text-align: center;
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-inverse);
+  padding: 2rem;
 }
 
+.header-container {
+  display: flex;
+  flex-direction: column; /* stacked mobile */
+  align-items: center;
+  position: relative;
+  gap: 1.5rem;
+}
+
+/* Image overlay */
 .image-overlay {
   position: relative;
-  display: inline-block;
+  z-index: 2;
 }
 
 .image-overlay img {
-  width: 100%;
-  object-fit: cover;
+  width: 100%; /* mobile: full width */
+  height: auto;
+  display: block;
 }
 
 .image-overlay h1 {
@@ -55,41 +68,32 @@ header {
   left: 50%;
   transform: translateX(-50%);
   padding: 0.5rem 1rem;
-  border-radius: 5px;
 }
 
-/* About Me section */
+/* About-me mobile */
 .about-me {
-  padding: 2rem;
-  background-color: #fff;
-}
-
-.about-me h1 {
-  margin-bottom: 1rem;
-}
-
-.about-me p {
-  max-width: 700px;
-  margin: 0 auto 1.5rem auto;
+  background: var(--color-bg-light);
+  color: var(--color-bg-dark);
+  padding: 1.5rem;
+  z-index: 1;
 }
 
 /* Dev icons */
 .dev-icons i {
   font-size: 2rem;
   margin: 0 0.5rem;
-  vertical-align: middle;
-  color: #333;
+  color: var(--color-text-inverse);
   transition: color 0.2s;
 }
 
 .dev-icons i:hover {
-  color: #0073b1; /* example hover color, adjust per icon */
+  color: var(--color-accent);
 }
 
 .project-container {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: 2em;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
 /* Project Grid */
@@ -136,6 +140,14 @@ header {
   color: #000;
 }
 
+footer {
+  display: flex;
+  flex-direction: column;
+  padding: 2em;
+  background-color: var(--color-bg-footer);
+  color: var(--color-text-inverse);
+}
+
 .footer-img {
   width: 100%;
   object-fit: cover;
@@ -147,8 +159,6 @@ header {
 }
 
 .contact-container {
-  background-color: var(--color-bg-footer);
-  color: var(--color-text-inverse);
   padding: 3rem 2rem;
   text-align: center;
 }
@@ -187,4 +197,66 @@ header {
 
 .contact-container .dev-icons i:hover {
   color: var(--color-accent);
+}
+.footer-img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  display: block;
+  margin: 2rem auto 0 auto; /* center horizontally, some spacing from content */
+  border-radius: 10px;
+}
+
+@media (min-width: 48rem) {
+  /* header */
+
+  .header-container {
+    display: block;
+    position: relative;
+  }
+
+  .about-me {
+    margin: 2rem 3rem;
+    position: relative;
+    z-index: 0;
+  }
+
+  .image-overlay {
+    max-width: 256px;
+    float: left;
+    top: -20px;
+    left: -20px;
+    z-index: 1;
+  }
+
+  .image-overlay h1 {
+    white-space: nowrap;
+    padding: 0 2em;
+    position: absolute;
+    top: 3px;
+    color: var(--color-bg-light);
+    transform: translateX(50%);
+  }
+
+  /* tablet */
+  .project-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 per row */
+  }
+
+  /* footer */
+  footer {
+    flex-direction: row;
+  }
+
+  .footer-img {
+    width: 40%; /* relative to footer container */
+    max-width: none; /* remove mobile max-width cap */
+  }
+}
+
+@media (min-width: 70rem) {
+  /* desktop */
+  .project-container {
+    grid-template-columns: repeat(3, 1fr); /* 3 per row */
+  }
 }
