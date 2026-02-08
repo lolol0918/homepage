@@ -1,8 +1,10 @@
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
+const isProduction = process.env.NODE_ENV === 'production';
+
 export default {
-  mode: 'development',
+  mode: isProduction ? 'production' : 'development',
 
   entry: './src/index.js',
 
@@ -10,6 +12,7 @@ export default {
     filename: 'main.js',
     path: path.resolve('dist'),
     clean: true,
+    publicPath: '/homepage/',
   },
 
   devtool: 'inline-source-map',
@@ -37,14 +40,17 @@ export default {
         exclude: /node_modules/,
         use: 'babel-loader',
       },
+
       {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
       },
+
       {
         test: /\.(png|jpe?g|gif|svg)$/i,
-        type: 'asset/resource', // this copies images to dist
+        type: 'asset/resource',
       },
+
       {
         test: /\.html$/i,
         loader: 'html-loader',
