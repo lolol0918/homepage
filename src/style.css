@@ -34,7 +34,7 @@ body {
 
 .header-container {
   position: relative;
-  min-height: 100vh;
+  min-height: auto;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -135,59 +135,95 @@ body {
 
 /* ==================== PROJECT SECTION ==================== */
 
+main {
+  background: var(--color-bg-page);
+  padding: 4rem 2rem;
+}
+
+main > section > h2 {
+  font-size: 2.5rem;
+  font-weight: 300;
+  margin-bottom: 3rem;
+  color: var(--color-text-primary);
+  font-family: Georgia, serif;
+}
+
 .project-container {
   display: grid;
   gap: 2rem;
-  padding: 2rem;
   grid-template-columns: 1fr;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .project-grid {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  background-color: var(--color-bg-muted);
-  padding: 2rem;
-  border-radius: 10px;
+  background-color: var(--color-bg-light);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.project-grid:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .project-grid img {
   width: 100%;
-  height: 200px;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
-  border-radius: 10px;
 }
 
 .project-description {
-  flex: 1;
+  padding: 1.5rem;
 }
 
 .project-heading {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
   color: var(--color-text-primary);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.project-short {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
 }
 
 .project-icons {
   display: flex;
-  gap: 0.5rem;
-  margin-top: 1rem;
+  gap: 0.75rem;
+  align-items: center;
+  flex-shrink: 0;
+  margin-left: 1rem;
 }
 
 .project-icons i,
 .project-icons svg {
-  font-size: 1.5rem;
-  width: 1em;
-  height: 1em;
+  font-size: 1.25rem;
+  width: 1.25rem;
+  height: 1.25rem;
   color: var(--color-text-primary);
   fill: currentColor;
   cursor: pointer;
-  transition: color 0.2s ease;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .project-icons i:hover,
 .project-icons svg:hover {
   color: var(--color-teal);
+  transform: scale(1.1);
 }
 
 /* ==================== FOOTER SECTION ==================== */
@@ -248,6 +284,7 @@ footer {
 @media (min-width: 48rem) and (max-width: 63.9375rem) {
   .header-container {
     display: block;
+    position: relative;
   }
 
   .header-bg {
@@ -262,45 +299,72 @@ footer {
   .content-wrapper {
     max-width: 900px;
     padding: 3rem;
+    display: block;
+    position: relative;
   }
 
+  /* Image floats left and sticks out from the white box */
   .image-overlay {
-    max-width: 350px;
+    float: left;
+    max-width: 300px;
+    position: relative;
+    margin: -2rem 2rem 1rem -2rem; /* Negative margins make it stick out */
+    z-index: 2;
   }
 
   .image-overlay img {
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    display: block;
+    aspect-ratio: 1 / 1; /* Square image for tablet */
+    object-fit: cover;
   }
 
+  /* Name appears to the RIGHT of the image on teal background */
   .image-overlay h1 {
-    top: 2rem;
-    right: -250px;
-    left: auto;
+    position: absolute;
+    top: 3rem;
+    left: 100%; /* Start from right edge of image */
     bottom: auto;
-    font-size: 3rem;
+    right: auto;
+    margin-left: 3rem; /* Space from image */
+    font-size: 3.5rem;
     white-space: nowrap;
+    color: var(--color-text-inverse);
+    transform: none;
   }
 
+  /* About me section - text wraps around image */
   .about-me {
-    margin: -8rem 0 0 2rem;
-    padding: 12rem 3rem 3rem 3rem;
-    max-width: 700px;
+    background: var(--color-bg-light);
+    padding: 2.5rem 3rem 3rem 3rem;
+    margin-top: 10rem; /* Pushes it down to clear the h1 name */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1;
+    /* DON'T use clear or overflow - let text wrap naturally */
   }
 
   .about-me h2 {
     font-size: 3rem;
+    margin-bottom: 1.5rem;
   }
 
   .about-me p {
     font-size: 1.0625rem;
+    line-height: 1.8;
   }
 
   .dev-icons {
     justify-content: flex-start;
+    margin-top: 2rem;
   }
 
   .project-container {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .project-grid img {
+    aspect-ratio: 1 / 1;
   }
 
   footer {
