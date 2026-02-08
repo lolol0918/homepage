@@ -242,7 +242,6 @@ footer {
   flex-direction: column;
   background-color: var(--color-bg-dark);
   color: var(--color-text-inverse);
-  padding: 2em 3em;
 }
 
 .contact-container {
